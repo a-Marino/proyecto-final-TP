@@ -33,16 +33,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Index and About Us -->
                         <li class="nav-item">
                             <a class="nav-link" href="/index">{{ __('Peliculas') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about">{{ __('Sobre Nosotros') }}</a>
                         </li>
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -81,6 +82,7 @@
         </nav>
 
         <main class="py-4 container">
+            @include('inc.mensajes')
             @yield('content')
         </main>
     </div>

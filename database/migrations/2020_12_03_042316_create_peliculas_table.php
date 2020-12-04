@@ -17,7 +17,6 @@ class CreatePeliculasTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->integer('anio');
-            $table->string('genero');
             $table->timestamps();
         });
     }

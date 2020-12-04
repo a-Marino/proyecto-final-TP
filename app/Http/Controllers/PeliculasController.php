@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pelicula;
 
 class PeliculasController extends Controller
 {
@@ -13,7 +14,8 @@ class PeliculasController extends Controller
      */
     public function index()
     {
-        //
+        $peliculas = Pelicula::all();
+        return view('peliculas.index', ['peliculas' => $peliculas]);
     }
 
     /**
@@ -23,7 +25,7 @@ class PeliculasController extends Controller
      */
     public function create()
     {
-        //
+        return view('peliculas.create');
     }
 
     /**
@@ -34,7 +36,17 @@ class PeliculasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'titulo' => 'required',
+            'anio' => 'required'
+        ]);
+
+        $pelicula = new Pelicula();
+        $pelicula->titulo = $request->input('titulo');
+        $pelicula->anio = $request->input('anio');
+        $peliculas->save();
+
+        return redirect('/peliculas')->with('success', 'Pelicula agregada Exitosamente');
     }
 
     /**
@@ -45,7 +57,9 @@ class PeliculasController extends Controller
      */
     public function show($id)
     {
-        //
+        $pelicula = Pelicula::findOrFail($id);
+
+        return view('peliculas.show', ['pelicula' => $pelicula]);
     }
 
     /**
@@ -56,7 +70,9 @@ class PeliculasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pelicula = Pelicula::findOrFail($id);
+
+        return view('peliculas.edit', ['pelicula' => $pelicula]);
     }
 
     /**
@@ -68,7 +84,17 @@ class PeliculasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'titulo' => 'required',
+            'anio' => 'required'
+        ]);
+
+        $pelicula = Pelicula::findOrFail($id);
+        $pelicula->titulo = $request->input('titulo');
+        $pelicula->anio = $request->input('anio');
+        $peliculas->save();
+
+        return redirect('/peliculas')->with('success', 'Pelicula actualizada Exitosamente');
     }
 
     /**
@@ -79,6 +105,10 @@ class PeliculasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pelicula = Pelicula::findOrFail($id);
+
+        $pelicula->delete();
+
+        return redirect('/peliculas')->with('success', 'Pelicula eliminada Exitosamente');
     }
 }
