@@ -2,22 +2,15 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+    <h1 class="text-center">Mis Peliculas</h1>
+    <div class="mt-1">
+        @if (count($peliculas) > 0)
+            @foreach ($peliculas as $pelicula)
+                <a href="/peliculas/{{$pelicula->id}}" class="">{{$pelicula->titulo}</a>
+            @endforeach
+        @else 
+            <h3 class="session">No has agregado ninguna pelicula.</h3>
+        @endif
     </div>
 </div>
 @endsection

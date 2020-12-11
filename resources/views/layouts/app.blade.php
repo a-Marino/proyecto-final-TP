@@ -39,7 +39,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Index and About Us -->
                         <li class="nav-item">
-                            <a class="nav-link" href="/index">{{ __('Peliculas') }}</a>
+                            <a class="nav-link" href="/peliculas">{{ __('Peliculas') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/about">{{ __('Sobre Nosotros') }}</a>

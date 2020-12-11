@@ -7,6 +7,11 @@ use App\Models\Pelicula;
 
 class PeliculasController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +49,8 @@ class PeliculasController extends Controller
         $pelicula = new Pelicula();
         $pelicula->titulo = $request->input('titulo');
         $pelicula->anio = $request->input('anio');
-        $peliculas->save();
+        $pelicula->user_id = auth()->user()->id;
+        $pelicula->save();
 
         return redirect('/peliculas')->with('success', 'Pelicula agregada Exitosamente');
     }
@@ -71,8 +77,11 @@ class PeliculasController extends Controller
     public function edit($id)
     {
         $pelicula = Pelicula::findOrFail($id);
-
-        return view('peliculas.edit', ['pelicula' => $pelicula]);
+        if (auth()->user()->id !== $pelicula->user_id) {
+            return redirect('/peliculas')->with('error', 'Acceso no autorizado');
+        } else {
+            return view('peliculas.edit', ['pelicula' => $pelicula]);
+        }
     }
 
     /**
@@ -92,7 +101,8 @@ class PeliculasController extends Controller
         $pelicula = Pelicula::findOrFail($id);
         $pelicula->titulo = $request->input('titulo');
         $pelicula->anio = $request->input('anio');
-        $peliculas->save();
+        $pelicula->user_id = auth()->user()->id;
+        $pelicula->save();
 
         return redirect('/peliculas')->with('success', 'Pelicula actualizada Exitosamente');
     }
