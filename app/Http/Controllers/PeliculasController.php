@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pelicula;
+use App\Models\Actor;
+use App\Models\Director;
+use App\Models\Genero;
 
 class PeliculasController extends Controller
 {
@@ -30,7 +33,11 @@ class PeliculasController extends Controller
      */
     public function create()
     {
-        return view('peliculas.create');
+        $actores = Actor::all();
+        $directores = Director::pluck('nombre', 'id');
+        $generos = Genero::pluck('nombre', 'id');
+
+        return view('peliculas.create', ['actores' => $actores, 'directores' => $directores, 'generos' => $generos]);
     }
 
     /**
@@ -49,8 +56,11 @@ class PeliculasController extends Controller
         $pelicula = new Pelicula();
         $pelicula->titulo = $request->input('titulo');
         $pelicula->anio = $request->input('anio');
+        $pelicula->genero_id = $request->input('genero');
+        $pelicula->director_id = $request->input('director');
         $pelicula->user_id = auth()->user()->id;
         $pelicula->save();
+        $pelicula->actores()->sync(request('actor'));
 
         return redirect('/peliculas')->with('success', 'Pelicula agregada Exitosamente');
     }

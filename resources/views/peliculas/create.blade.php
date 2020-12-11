@@ -12,6 +12,21 @@
         {{ Form::label('anio', 'Año de estreno:') }}
         {{ Form::number('anio', '', ['class' => 'form-control']) }}
     </div>
+    <div class="form-group">
+        {{ Form::label('genero', 'Genero:') }} 
+        {{ Form::select('genero', $generos, null,['class' => 'form-control']) }}
+    </div>
+    <div class="form-group">
+        {{ Form::label('director', 'Director:')}}
+        {{ Form::select('director', $directores, null,['class' => 'form-control']) }}
+    </div>
+    <div class="form-group">
+        {{ Form::label('actores', "Actores:")}} <br>
+        @foreach ($actores as $actor)
+            {{ Form::label('actor', $actor->nombre)}} 
+            {{ Form::checkbox('actor', $actor->id)}} <br>
+        @endforeach
+    </div>
     <!-- Agregar Actores principales / Director y Genero -->
     {{ Form::submit('Agregar Pelicula', ['class' => 'btn btn-success'])}}
 {!! Form::close() !!}
