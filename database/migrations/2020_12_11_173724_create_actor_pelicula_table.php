@@ -13,14 +13,14 @@ class CreateActorPeliculaTable extends Migration
      */
     public function up()
     {
-        Schema::create('actores_peliculas', function (Blueprint $table) {
+        Schema::create('actor_pelicula', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('peliculas_id');
-            $table->unsignedBigInteger('actores_id');
+            $table->unsignedBigInteger('pelicula_id');
+            $table->unsignedBigInteger('actor_id');
             $table->timestamps();
 
-            $table->foreign('peliculas_id')->references('id')->on('peliculas');
-            $table->foreign('actores_id')->references('id')->on('actores');
+            $table->foreign('pelicula_id')->references('id')->on('peliculas');
+            $table->foreign('actor_id')->references('id')->on('actores');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateActorPeliculaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actores_peliculas');
+        Schema::dropIfExists('actor_pelicula');
     }
 }

@@ -60,7 +60,7 @@ class PeliculasController extends Controller
         $pelicula->director_id = $request->input('director');
         $pelicula->user_id = auth()->user()->id;
         $pelicula->save();
-        $pelicula->actores()->sync(request('actor'));
+        $pelicula->actor()->sync(request('actor'));
 
         return redirect('/peliculas')->with('success', 'Pelicula agregada Exitosamente');
     }
