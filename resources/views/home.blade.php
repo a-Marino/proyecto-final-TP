@@ -6,7 +6,7 @@
     <div class="mt-1">
         @if (count($peliculas) > 0)
             @foreach ($peliculas as $pelicula)
-                <a href="/peliculas/{{$pelicula->id}}" class="">{{$pelicula->titulo}}</a>
+                <a href="/peliculas/{{$pelicula->id}}" class="">{{$pelicula->titulo}}</a><br>
             @endforeach
         @else 
             <h3 class="session">No has agregado ninguna pelicula.</h3>

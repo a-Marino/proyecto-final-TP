@@ -15,8 +15,8 @@ class Pelicula extends Model
         return $this->belongsTo('\App\Models\User');
     }
 
-    public function actor() {
-        return $this->belongsToMany('\App\Models\Actor');
+    public function actores() {
+        return $this->belongsToMany('\App\Models\Actor', 'actor_pelicula', 'pelicula_id', 'actor_id')->withTimestamps();
     }
 
     public function genero() {

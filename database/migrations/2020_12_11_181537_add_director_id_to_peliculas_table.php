@@ -27,7 +27,7 @@ class AddDirectorIdToPeliculasTable extends Migration
     public function down()
     {
         Schema::table('peliculas', function (Blueprint $table) {
-            //
+            $table->dropColumn('director_id');
         });
     }
 }

@@ -12,6 +12,6 @@ class Actor extends Model
     protected $table = 'actores';
 
     public function peliculas() {
-        return $this->belongsToMany('\App\Models\Pelicula');
+        return $this->belongsToMany('\App\Models\Pelicula', 'actor_pelicula', 'actor_id', 'pelicula_id')->withTimestamps();
     }
 }
