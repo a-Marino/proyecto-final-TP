@@ -3,7 +3,7 @@
 
 <h1>Agregar una nueva Pelicula a su lista</h1>
 
-{!! Form::open(['action' => 'App\Http\Controllers\PeliculasController@store', 'method' => 'POST']) !!}
+{!! Form::open(['action' => 'App\Http\Controllers\PeliculasController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{ Form::label('titulo', 'Titulo:') }}  
         {{ Form::text('titulo', '', ['class' => 'form-control', 'placeholder' => 'Titulo']) }}
@@ -24,8 +24,12 @@
         {{ Form::label('actores', "Actores:")}} <br>
         @foreach ($actores as $actor)
             {{ Form::label('actor', $actor->nombre)}} 
-            {{ Form::checkbox('actor', $actor->id)}} <br>
+            {{ Form::checkbox('actor[]', $actor->id)}} <br>
         @endforeach
+    </div>
+    <div class="form-group">
+        {{ Form::label('portada', 'Portada:')}} <br>
+        {{ Form::file('portada', ['class' => 'form_control'])}}
     </div>
     <!-- Agregar Actores principales / Director y Genero -->
     {{ Form::submit('Agregar Pelicula', ['class' => 'btn btn-success'])}}

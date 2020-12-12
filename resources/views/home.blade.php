@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-center">Mis Peliculas</h1>
+    <h1 class="font-weight-bold text-center">Mis Peliculas</h1>
     <div class="mt-1">
         @if (count($peliculas) > 0)
             @foreach ($peliculas as $pelicula)
-                <a href="/peliculas/{{$pelicula->id}}" class="">{{$pelicula->titulo}}</a><br>
+                <a href="/peliculas/{{$pelicula->id}}" class='text-dark'><h3>{{$pelicula->titulo}}</h3></a>
             @endforeach
         @else 
             <h3 class="session">No has agregado ninguna pelicula.</h3>

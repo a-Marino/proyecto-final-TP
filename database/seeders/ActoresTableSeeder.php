@@ -45,5 +45,9 @@ class ActoresTableSeeder extends Seeder
         $actor = new Actor();
         $actor->nombre = 'Leonardo DiCaprio';
         $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Fionn Whitehead';
+        $actor->save();
     }
 }
