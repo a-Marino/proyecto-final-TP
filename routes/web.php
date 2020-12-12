@@ -25,3 +25,6 @@ Route::get('/about', [App\Http\Controllers\PagesController::class, 'about']);
 Route::get('/index', [App\Http\Controllers\PagesController::class, 'index']);
 
 Route::resource('peliculas', '\App\Http\Controllers\PeliculasController');
+Route::resource('actores', '\App\Http\Controllers\ActoresController');
+Route::resource('directores', '\App\Http\Controllers\DirectoresController');
+Route::resource('generos', '\App\Http\Controllers\GenerosController');

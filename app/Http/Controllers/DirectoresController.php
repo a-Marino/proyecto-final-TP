@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Actor;
+use App\Models\Director;
 
-class ActoresController extends Controller
+class DirectoresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ActoresController extends Controller
      */
     public function index()
     {
-        $actores = Actor::all();
+        $directores = Director::all();
 
-        return view('actores.index', ['actores' => $actores]);
+        return view('directores.index', ['directores' => $directores]);
     }
 
     /**
@@ -48,9 +48,9 @@ class ActoresController extends Controller
      */
     public function show($id)
     {
-        $actor = Actor::findOrFail($id);
+        $director = Director::findOrFail($id);
 
-        return view('actores.show', ['actor' => $actor]);
+        return view('directores.show', ['director' => $director]);
     }
 
     /**

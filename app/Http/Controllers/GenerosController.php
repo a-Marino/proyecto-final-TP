@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Actor;
+use App\Models\Genero;
 
-class ActoresController extends Controller
+class GenerosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ActoresController extends Controller
      */
     public function index()
     {
-        $actores = Actor::all();
-
-        return view('actores.index', ['actores' => $actores]);
+        $generos = Genero::all();
+        
+        return view('generos.index', ['generos' => $generos]);
     }
 
     /**
@@ -48,9 +48,9 @@ class ActoresController extends Controller
      */
     public function show($id)
     {
-        $actor = Actor::findOrFail($id);
+        $genero = Genero::findOrFail($id);
 
-        return view('actores.show', ['actor' => $actor]);
+        return view('generos.show', ['genero' => $genero]);
     }
 
     /**
