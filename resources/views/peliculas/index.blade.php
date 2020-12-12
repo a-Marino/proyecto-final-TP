@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>Peliculas agregadas</h1>
+<h1>Peliculas:</h1>
 
 @if (count($peliculas) > 0)
     @foreach ($peliculas as $pelicula)
