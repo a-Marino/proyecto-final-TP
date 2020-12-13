@@ -22,7 +22,7 @@ class PeliculasController extends Controller
      */
     public function index()
     {
-        $peliculas = Pelicula::all();
+        $peliculas = Pelicula::orderBy('id', 'desc')->simplePaginate(10);
         return view('peliculas.index', ['peliculas' => $peliculas]);
     }
 
