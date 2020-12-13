@@ -14,7 +14,7 @@ class DirectoresController extends Controller
      */
     public function index()
     {
-        $directores = Director::all();
+        $directores = Director::orderBy('id', 'desc')->simplePaginate(10);
 
         return view('directores.index', ['directores' => $directores]);
     }

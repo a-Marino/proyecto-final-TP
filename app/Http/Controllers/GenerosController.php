@@ -14,7 +14,7 @@ class GenerosController extends Controller
      */
     public function index()
     {
-        $generos = Genero::all();
+        $generos = Genero::orderBy('id', 'desc')->simplePaginate(10);
         
         return view('generos.index', ['generos' => $generos]);
     }
