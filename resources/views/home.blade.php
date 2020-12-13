@@ -10,7 +10,6 @@
             @foreach ($peliculas as $pelicula)
                 <a href="/peliculas/{{$pelicula->id}}" class='text-dark'><h3>{{$pelicula->titulo}}</h3></a>
             @endforeach
-            {{ $peliculas->links() }}
         @else 
             <h3 class="session">No has agregado ninguna pelicula.</h3>
         @endif
