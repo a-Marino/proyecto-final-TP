@@ -79,7 +79,7 @@ class PeliculasController extends Controller
         $pelicula->save();
         $pelicula->actores()->sync(request('actor'));
 
-        return redirect('/peliculas')->with('success', 'Pelicula agregada Exitosamente');
+        return redirect('/home')->with('success', 'Pelicula agregada Exitosamente');
     }
 
     /**
@@ -104,10 +104,14 @@ class PeliculasController extends Controller
     public function edit($id)
     {
         $pelicula = Pelicula::findOrFail($id);
+        $actores = Actor::all();
+        $directores = Director::pluck('nombre', 'id');
+        $generos = Genero::pluck('nombre', 'id');
+
         if (auth()->user()->id !== $pelicula->user_id) {
             return redirect('/peliculas')->with('error', 'Acceso no autorizado');
         } else {
-            return view('peliculas.edit', ['pelicula' => $pelicula]);
+            return view('peliculas.edit', ['pelicula' => $pelicula, 'actores' =>$actores, 'directores' => $directores, 'generos' => $generos]);
         }
     }
 
@@ -134,7 +138,7 @@ class PeliculasController extends Controller
         $pelicula->save();
         $pelicula->actores()->sync(request('actor'));
 
-        return redirect('/peliculas')->with('success', 'Pelicula actualizada Exitosamente');
+        return redirect('/home')->with('success', 'Pelicula actualizada Exitosamente');
     }
 
     /**

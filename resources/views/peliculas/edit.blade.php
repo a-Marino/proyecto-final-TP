@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>Agregar una nueva Pelicula a su lista</h1>
+<h1>Editar Pelicula</h1>
 
 {!! Form::open(['action' => ['App\Http\Controllers\PeliculasController@update', $pelicula->id], 'method' => 'PUT']) !!}
     <div class="form-group">
@@ -24,10 +24,10 @@
         {{ Form::label('actores', "Actores:")}} <br>
         @foreach ($actores as $actor)
             {{ Form::label('actor', $actor->nombre)}} 
-            {{ Form::checkbox('actor', $actor->id)}} <br>
+            {{ Form::checkbox('actor[]', $actor->id)}} <br>
         @endforeach
     </div>
-{{ Form::submit('Agregar Pelicula', ['class' => 'btn btn-success'])}}
+{{ Form::submit('Editar Pelicula', ['class' => 'btn btn-success'])}}
 {!! Form::close() !!}
 
 @endsection
