@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>Editar Pelicula</h1>
+<h1 class="mt-4">Editar Pelicula</h1>
 
 {!! Form::open(['action' => ['App\Http\Controllers\PeliculasController@update', $pelicula->id], 'method' => 'PUT']) !!}
     <div class="form-group">

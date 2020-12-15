@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="text-center font-weight-bold">{{$pelicula->titulo}}</h1>
-<img src="/storage/portadas/{{$pelicula->path_imagen}}" class="mx-auto d-block mb-3">
+<h1 class="text-center font-weight-bold mt-4">{{$pelicula->titulo}}</h1>
+<img src="/storage/portadas/{{$pelicula->path_imagen}}" class="mx-auto d-block mb-3 img-fluid">
 <h3 class="font-weight-bold">Año de estreno:</h3>
 <h4>{{$pelicula->anio}}</h4>
 <h3 class="font-weight-bold">Director:</h3>

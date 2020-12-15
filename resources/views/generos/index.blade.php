@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="font-weight-bold text-center mb-5">Generos:</h1>
+<h1 class="font-weight-bold text-center mb-5 mt-4">Generos:</h1>
 
 @if (count($generos) > 0)
     @foreach ($generos as $genero)

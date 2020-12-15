@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="font-weight-bold text-center mb-5">Directores</h1>
+<h1 class="font-weight-bold text-center mb-5 mt-4">Directores</h1>
 
 @if (count($directores) > 0)
     @foreach ($directores as $director)

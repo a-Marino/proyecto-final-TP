@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="font-weight-bold text-center mb-5">Actores</h1>
+<h1 class="font-weight-bold text-center mb-5 mt-4">Actores</h1>
 
 @if (count($actores) > 0)
     @foreach ($actores as $actor)

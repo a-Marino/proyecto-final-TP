@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>Agregar una nueva Pelicula a su lista</h1>
+<h1 class="mt-4">Agregar una nueva Pelicula a su lista</h1>
 
 {!! Form::open(['action' => 'App\Http\Controllers\PeliculasController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">

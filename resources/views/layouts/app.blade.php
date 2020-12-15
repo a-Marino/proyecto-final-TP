@@ -96,11 +96,13 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4 container">
+        <main class="container">
             @include('inc.mensajes')
             @yield('content')
         </main>
+        <div>
+            @yield('wallpaper')
+        </div>
     </div>
 </body>
 </html>

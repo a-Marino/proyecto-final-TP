@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="text-center font-weight-bold mb-5">Peliculas</h1>
+<h1 class="text-center font-weight-bold mb-5 mt-4">Peliculas</h1>
 
 @if (count($peliculas) > 0)
     @foreach ($peliculas as $pelicula)
