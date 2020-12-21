@@ -20,8 +20,7 @@ class Pelicula extends JsonResource
             'estreno' => $this->anio,
             'director' => $this->director->nombre,
             'genero' => $this->genero->nombre,
-            'actores' => $this->actores->
-            // director, actores y genero
+            'actores' => $this->actores
         ];
     }
 }
