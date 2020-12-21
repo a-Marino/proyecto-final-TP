@@ -14,12 +14,13 @@ class Pelicula extends JsonResource
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
-
         return [
             'pelicula_id' => $this->id,
             'titulo' => $this->titulo,
-            'estreno' => $this->anio
+            'estreno' => $this->anio,
+            'director' => $this->director->nombre,
+            'genero' => $this->genero->nombre,
+            'actores' => $this->actores->
             // director, actores y genero
         ];
     }
