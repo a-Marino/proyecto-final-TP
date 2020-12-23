@@ -14,13 +14,24 @@ class Pelicula extends JsonResource
      */
     public function toArray($request)
     {
+        foreach ($this->actores as $actor) {
+            $nombre_actores[] = ['nombre' => $actor->nombre];
+        }
+
         return [
             'pelicula_id' => $this->id,
             'titulo' => $this->titulo,
             'estreno' => $this->anio,
             'director' => $this->director->nombre,
             'genero' => $this->genero->nombre,
-            'actores' => $this->actores
+            'actores' => $nombre_actores
+        ];
+    }
+
+    public function with($request)
+    {
+        return [
+            'versión' => 'FINAL'
         ];
     }
 }
