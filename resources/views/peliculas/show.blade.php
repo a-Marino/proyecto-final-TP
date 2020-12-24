@@ -11,6 +11,7 @@
 @foreach ($pelicula->actores as $actor)
     <a class='text-dark' href="/actores/{{$actor->id}}"><h4>{{$actor->nombre}}</h4></a>
 @endforeach
+<h6 class="font-weight-bold float-right mb-3">Pelicula agregada por: {{$pelicula->user->name}}</h6>
 
 
 @if (!Auth::guest())
