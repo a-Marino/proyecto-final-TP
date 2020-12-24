@@ -33,5 +33,29 @@ class DirectoresTableSeeder extends Seeder
         $director = new Director();
         $director->nombre = 'Tim Burton';
         $director->save();
+
+        $director = new Director();
+        $director->nombre = 'Clint Eastwood';
+        $director->save();
+
+        $director = new Director();
+        $director->nombre = 'Francis Ford Coppola';
+        $director->save();
+
+        $director = new Director();
+        $director->nombre = 'Stanley Kubrick';
+        $director->save();
+
+        $director = new Director();
+        $director->nombre = 'Nick Cassavetes';
+        $director->save();
+
+        $director = new Director();
+        $director->nombre = 'John Carpenter';
+        $director->save();
+
+        $director = new Director();
+        $director->nombre = 'Wes Craven';
+        $director->save();
     }
 }

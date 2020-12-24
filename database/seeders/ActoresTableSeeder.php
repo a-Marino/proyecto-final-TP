@@ -49,5 +49,45 @@ class ActoresTableSeeder extends Seeder
         $actor = new Actor();
         $actor->nombre = 'Fionn Whitehead';
         $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Donald Pleasence';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Jamie Lee Curtis';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Neve Campbell';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'David Arquette';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Matthew Lillard';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Courtney Cox';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Ryan Gosling';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Rachel McAdams';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'Gena Rowlands';
+        $actor->save();
+
+        $actor = new Actor();
+        $actor->nombre = 'James Garner';
+        $actor->save();
     }
 }
