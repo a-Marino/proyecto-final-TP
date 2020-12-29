@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
 
-<h1 class="font-weight-bold text-center mb-5 mt-4">Actores</h1>
+<h1 class="font-weight-bold text-center mb-5 mt-4 amarillo">Actores</h1>
 
 @if (count($actores) > 0)
     @foreach ($actores as $actor)
-        <a href="/actores/{{$actor->id}}" class='text-dark'><h3>{{$actor->nombre}}</h3></a>
+        <a href="/actores/{{$actor->id}}" class='text-light'><h3>{{$actor->nombre}}</h3></a>
     @endforeach
     {{ $actores->links() }}
 @else 

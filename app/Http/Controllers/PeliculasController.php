@@ -126,8 +126,24 @@ class PeliculasController extends Controller
     {
         $this->validate($request, [
             'titulo' => 'required',
-            'anio' => 'required'
+            'anio' => 'required',
+            'portada' => 'image|nullable'
         ]);
+
+        if ($request->hasFile('portada')) {
+
+            $nombre_original = $request->file('portada')->getClientOriginalName();
+            $nombre = pathInfo($nombre_original, PATHINFO_FILENAME);
+            $extension = $request->file('portada')->getClientOriginalExtension();
+            $nombre_a_guardar = $nombre.time().'.'.$extension;
+
+            $request->file('portada')->storeAs('public/portadas', $nombre_a_guardar);
+
+        } else {
+
+            $nombre_a_guardar = 'noimage.jpg';
+
+        }
 
         $pelicula = Pelicula::findOrFail($id);
         $pelicula->titulo = $request->input('titulo');
@@ -135,6 +151,7 @@ class PeliculasController extends Controller
         $pelicula->genero_id = $request->input('genero');
         $pelicula->director_id = $request->input('director');
         $pelicula->user_id = auth()->user()->id;
+        $pelicula->path_imagen = $nombre_a_guardar;
         $pelicula->save();
         $pelicula->actores()->sync(request('actor'));
 
