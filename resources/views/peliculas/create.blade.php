@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<script src="{{ asset('js/select-actores.js') }}" type="text/javascript"></script>
 
 <h1 class="mt-4 amarillo">Agregar una nueva Pelicula a su lista</h1>
 
@@ -21,20 +22,18 @@
         {{ Form::select('director', $directores, null, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {!! Form::label('actor[]', 'Actores:', ['class' => 'text-white']) !!}
-        {!! Form::select('actor[]', $actores, null, ['class' => 'form-control', 'id' => 'actores', 'multiple' => 'multiple']) !!}
+        {!! Form::label('actor[]', 'Actores:', ['class' => 'text-white']) !!} <br>
+        <select name="actor[]" id="actores" multiple='multiple'>
+            @foreach($actores as $actor)
+                <option value="{{$actor->id}}">{{$actor->nombre}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         {{ Form::label('portada', 'Portada:', ['class' => 'text-white'])}} <br>
         {{ Form::file('portada', ['class' => 'form_control text-white'])}}
     </div>
     <!-- Agregar Actores principales / Director y Genero -->
-    {{ Form::submit('Agregar Pelicula', ['class' => 'btn btn-success'])}}
+    {{ Form::submit('Agregar Pelicula', ['class' => 'btn btn-success mb-3'])}}
 {!! Form::close() !!}
-
-<script type="text/javascript">
-    tail.select('#actores', {
-        search: 'true',
-    });
-</script>
 @endsection

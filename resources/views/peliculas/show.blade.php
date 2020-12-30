@@ -22,7 +22,7 @@
             @if (!Auth::guest())
                 @if (Auth::user()->id == $pelicula->user_id)
                     <div class="mr-5">
-                        <a href="/peliculas/{{$pelicula->id}}/edit" class='btn btn-info btn-small'>Editar Pelicula</a>
+                        <a href="/peliculas/{{$pelicula->id}}/edit" class='btn btn-info btn-small mb-3'>Editar Pelicula</a>
                     </div>
                     {!! Form::open(['action' => ['App\Http\Controllers\PeliculasController@destroy', $pelicula->id], 'method' => 'DELETE']) !!}
                         {{ Form::submit('Eliminar Pelicula', ['class' => 'btn btn-danger'])}}

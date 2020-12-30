@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+require('tail.select');
+require('popper.js');
 
 window.Vue = require('vue');
 

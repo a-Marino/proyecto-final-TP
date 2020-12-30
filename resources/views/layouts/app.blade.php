@@ -12,6 +12,9 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/tail.select.js') }}" defer></script>
+    <script src="{{ asset('js/popper.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tail.select@0.5.15/js/tail.select-full.min.js"></script>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +23,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/peliculas.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
 </head>
 <body>

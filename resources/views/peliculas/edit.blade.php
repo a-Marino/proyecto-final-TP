@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<script src="{{ asset('js/select-actores.js') }}" type="text/javascript"></script>
 
 <h1 class="mt-4 amarillo">Editar Pelicula</h1>
 
@@ -21,14 +22,18 @@
         {{ Form::select('director', $directores, $pelicula->directores,['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {!! Form::label('actor[]', 'Actores:', ['class' => 'text-white']) !!}
-        {!! Form::select('actor[]', $actores, $pelicula->actores, ['class' => 'form-control', 'id' => 'actores', 'multiple' => 'multiple']) !!}
+        {!! Form::label('actor[]', 'Actores:', ['class' => 'text-white']) !!} <br>
+        <select name="actor[]" id="actores" multiple='multiple'>
+            @foreach($actores as $actor)
+                <option value="{{$actor->id}}">{{$actor->nombre}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         {{ Form::label('portada', 'Portada:', ['class' => 'text-white'])}} <br>
         {{ Form::file('portada', ['class' => 'form_control text-white'])}}
     </div>
-{{ Form::submit('Editar Pelicula', ['class' => 'btn btn-success'])}}
+{{ Form::submit('Editar Pelicula', ['class' => 'btn btn-success mb-3'])}}
 {!! Form::close() !!}
 
 @endsection
