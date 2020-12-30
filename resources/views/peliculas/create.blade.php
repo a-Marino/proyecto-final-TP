@@ -21,11 +21,8 @@
         {{ Form::select('director', $directores, null, ['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {{ Form::label('actores', "Actores:", ['class' => 'text-white'])}} <br>
-        @foreach ($actores as $actor)
-            {{ Form::label('actor', $actor->nombre, ['class' => 'text-white'])}} 
-            {{ Form::checkbox('actor[]', $actor->id)}} <br>
-        @endforeach
+        {!! Form::label('actor[]', 'Actores:', ['class' => 'text-white']) !!}
+        {!! Form::select('actor[]', $actores, null, ['class' => 'form-control', 'id' => 'actores', 'multiple' => 'multiple']) !!}
     </div>
     <div class="form-group">
         {{ Form::label('portada', 'Portada:', ['class' => 'text-white'])}} <br>
@@ -35,4 +32,9 @@
     {{ Form::submit('Agregar Pelicula', ['class' => 'btn btn-success'])}}
 {!! Form::close() !!}
 
+<script type="text/javascript">
+    tail.select('#actores', {
+        search: 'true',
+    });
+</script>
 @endsection

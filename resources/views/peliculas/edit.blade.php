@@ -14,18 +14,15 @@
     </div>
     <div class="form-group">
         {{ Form::label('genero', 'Genero:', ['class' => 'text-white']) }} 
-        {{ Form::select('genero', $generos, null,['class' => 'form-control']) }}
+        {{ Form::select('genero', $generos, $pelicula->generos,['class' => 'form-control']) }}
     </div>
     <div class="form-group">
         {{ Form::label('director', 'Director:', ['class' => 'text-white'])}}
-        {{ Form::select('director', $directores, null,['class' => 'form-control']) }}
+        {{ Form::select('director', $directores, $pelicula->directores,['class' => 'form-control']) }}
     </div>
     <div class="form-group">
-        {{ Form::label('actores', "Actores:", ['class' => 'text-white'])}} <br>
-        @foreach ($actores as $actor)
-            {{ Form::label('actor', $actor->nombre, ['class' => 'text-white'])}} 
-            {{ Form::checkbox('actor[]', $actor->id)}} <br>
-        @endforeach
+        {!! Form::label('actor[]', 'Actores:', ['class' => 'text-white']) !!}
+        {!! Form::select('actor[]', $actores, $pelicula->actores, ['class' => 'form-control', 'id' => 'actores', 'multiple' => 'multiple']) !!}
     </div>
     <div class="form-group">
         {{ Form::label('portada', 'Portada:', ['class' => 'text-white'])}} <br>

@@ -33,7 +33,7 @@ class PeliculasController extends Controller
      */
     public function create()
     {
-        $actores = Actor::all();
+        $actores = Actor::pluck('nombre', 'id');
         $directores = Director::pluck('nombre', 'id');
         $generos = Genero::pluck('nombre', 'id');
 
@@ -104,7 +104,7 @@ class PeliculasController extends Controller
     public function edit($id)
     {
         $pelicula = Pelicula::findOrFail($id);
-        $actores = Actor::all();
+        $actores = Actor::pluck('nombre', 'id');
         $directores = Director::pluck('nombre', 'id');
         $generos = Genero::pluck('nombre', 'id');
 
