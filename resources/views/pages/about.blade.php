@@ -15,7 +15,7 @@
     base de datos única de artistas provistas por el sistema, así como también los géneros.
 </p>
 <p class="float-left text-white">Si desea leer la consigna completa, precione el siguiente boton:</p>
-<a href="/storage/consigna/consigna.pdf" class="btn btn-outline-info ml-3 btn-sm" target="_blank">
+<a href="{{asset('src/consigna/Consigna.pdf')}}" class="btn btn-outline-info ml-3 btn-sm" target="_blank">
     <i class="fas fa-download">Abrir consigna</i>
 </a>
 

@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('wallpaper')
-<img src="/storage/wallpaper/pelisToWatch.jpg" class="portada">
+<img src='{{ asset('src/wallpaper/pelisToWatch.jpg') }}' class="portada">
 @endsection
