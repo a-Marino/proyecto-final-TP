@@ -9,7 +9,7 @@
     @endforeach
     {{ $peliculas->links() }}
 @else 
-   <h3 class="session">Ninguna pelicula ha sido agregada al sistema.</h3>
+  	<h3 class="session">Ninguna pelicula ha sido agregada al sistema.</h3>
 @endif
 
 @endsection
